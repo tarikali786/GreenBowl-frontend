@@ -1,0 +1,29 @@
+import React from "react";
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // Import the default CSS
+import { HomeHeroData } from "../Data/data";
+
+export const Hero = () => {
+  return (
+    <div>
+      <Carousel
+        autoPlay
+        infiniteLoop
+        showThumbs={false}
+        showStatus={false}
+        interval={3000}
+        transitionTime={500}
+      >
+        {HomeHeroData.map((img, index) => (
+          <div key={index} style={{ height: "88.5vh" }}>
+            <img
+              src={img.img}
+              alt={`Slide ${index + 1}`}
+              className=" object-fill "
+            />
+          </div>
+        ))}
+      </Carousel>
+    </div>
+  );
+};
