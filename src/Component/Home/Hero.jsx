@@ -15,7 +15,7 @@ export const Hero = () => {
         transitionTime={500}
       >
         {HomeHeroData.map((img, index) => (
-          <div key={index} style={{ height: "88.5vh" }}>
+          <div key={index} className="h-[40vh] md:h-[50vh] lg:h-[65vh] xl:h-[88.5vh]">
             <img
               src={img.img}
               alt={`Slide ${index + 1}`}

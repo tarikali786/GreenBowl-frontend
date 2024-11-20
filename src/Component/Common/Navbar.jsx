@@ -6,7 +6,7 @@ import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import SearchIcon from "@mui/icons-material/Search";
 export const Navbar = () => {
   return (
-    <div className="bg-black-200 w-full flex justify-between items-center px-4 md:px-14  sticky left-0 top-0 gap-4 z-50">
+    <div className="bg-black-200 w-full flex justify-between items-center px-4 md:px-14 lg:px-34 xl:px-44  sticky left-0 top-0 gap-4 z-50">
       <div className="w-44 h-20">
         <img src={Logo} alt="" />
       </div>
