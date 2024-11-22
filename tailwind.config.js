@@ -33,6 +33,9 @@ export default {
         200: "#1E2022",
         100: "#dadada",
       },
+      red: {
+        500: "#03c9d7",
+      },
     },
   },
   plugins: [],

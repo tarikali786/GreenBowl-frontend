@@ -2,6 +2,7 @@ import Logo from "../../assets/Logo/Logo.png";
 import AccountCircleIcon from "../../assets/icon/user.png";
 import ShoppingCartIcon from "../../assets/icon/cart.png";
 import Location from "../../assets/icon/location.png";
+import Recipe from "../../assets/icon/icons8-meal-100.png";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import SearchIcon from "@mui/icons-material/Search";
 export const Navbar = () => {
@@ -19,13 +20,6 @@ export const Navbar = () => {
         />
       </div>
       <div className="flex items-center gap-4 md:gap-8">
-        <div className="md:flex hidden items-center gap-1 md:gap-2 text-white-500 cursor-pointer">
-          <div className="size-6 md:size-8">
-            <img src={Location} alt="" />
-          </div>
-          <span>Location</span>
-          <KeyboardArrowDownIcon />
-        </div>
         <div className="flex items-center gap-1 md:gap-2 text-white-500 cursor-pointer">
           <div className="size-6 md:size-8">
             <img src={AccountCircleIcon} alt="" />
@@ -41,6 +35,13 @@ export const Navbar = () => {
             </span>
           </div>
           <span>Cart</span>
+        </div>
+        <div className="md:flex hidden items-center gap-1 md:gap-2 text-white-500 cursor-pointer">
+          <div className="size-6 md:size-8 overflow-hidden bg-white-500 rounded-full">
+            <img src={Recipe} alt="" />
+          </div>
+          <span>Recipe</span>
+          {/* <KeyboardArrowDownIcon /> */}
         </div>
       </div>
     </div>

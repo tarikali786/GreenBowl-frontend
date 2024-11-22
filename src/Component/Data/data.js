@@ -708,41 +708,41 @@ export const CustomExtrasData = [
     title: "Lemon",
     description: "Freshly squeezed for a zesty flavor boost.",
     calories: "5 kcal per slice",
-    price: "₹5",
+    price: "5",
   },
   {
     img: extra2, // Replace with the image source or URL for Black Salt
     title: "Black Salt",
     description: "Adds a tangy, earthy flavor to your salad.",
     calories: "0 kcal",
-    price: "₹2",
+    price: "2",
   },
   {
     img: extra3, // Replace with the image source or URL for Chili Flakes
     title: "Chili Flakes",
     description: "For a touch of heat and spice.",
     calories: "6 kcal per tsp",
-    price: "₹3",
+    price: "3",
   },
   {
     img: extra4, // Replace with the image source or URL for Mint Leaves
     title: "Mint Leaves",
     description: "Refreshing and aromatic for a fresh finish.",
     calories: "2 kcal per 5 leaves",
-    price: "₹4",
+    price: "4",
   },
   {
     img: extra5, // Replace with the image source or URL for Honey
     title: "Honey",
     description: "A natural sweetener to balance flavors.",
     calories: "64 kcal per tbsp",
-    price: "₹10",
+    price: "10",
   },
   {
     img: extra6, // Replace with the image source or URL for Chilies
     title: "Chilies",
     description: "Fresh and spicy for those who love heat.",
     calories: "40 kcal per 100g",
-    price: "₹6",
+    price: "6",
   },
 ];
