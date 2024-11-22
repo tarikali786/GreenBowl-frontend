@@ -8,10 +8,19 @@ import ToppingIocn from "../../../assets/icon/top.png";
 import "swiper/swiper-bundle.css";
 import { useMediaQuery } from "@mui/material";
 import { CustomToppingsData } from "../../Data/data";
+import { useState } from "react";
 
 export const Topping = () => {
   const isMd = useMediaQuery("(max-width:1024px)");
   const isSm = useMediaQuery("(max-width:686px)");
+  const [toppingData, setToppingData] = useState([]);
+  const handletToppingDataSelection = (index) => {
+    if (toppingData.includes(index)) {
+      setToppingData(toppingData.filter((item) => item !== index));
+    } else {
+      setToppingData((prev) => [...prev, index]);
+    }
+  };
   return (
     <div className="my-8">
       <h3 className="flex items-center gap-2 text-2xl font-semibold text-black-600">
@@ -36,8 +45,11 @@ export const Topping = () => {
         {CustomToppingsData.map((item, index) => (
           <SwiperSlide className="mt-8" key={index}>
             <div
-              className=" cursor-pointer rounded-lg shadow-lg  p-4 "
+              className={`cursor-pointer rounded-lg shadow-lg  p-4 ${
+                toppingData.includes(index) && "border-4 border-green-500"
+              }`}
               key={index}
+              onClick={() => handletToppingDataSelection(index)}
             >
               <div className="w-full  h-[22vh]  md:h-[26vh] lg:h-[28vh] xl:h-[32vh] rounded-lg shadow-xl overflow-hidden">
                 <img

@@ -21,6 +21,9 @@ export default {
       },
       white: {
         500: "#FFFFFF",
+        400: "#e0e0e0",
+        300: "#c1c1c1",
+        200: "#b5b5b5",
       },
       black: {
         600: " #1F1F1F",

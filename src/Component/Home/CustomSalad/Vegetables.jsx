@@ -7,10 +7,19 @@ import veg from "../../../assets/icon/veg.png";
 import "swiper/swiper-bundle.css";
 import { useMediaQuery } from "@mui/material";
 import { CustomVegetablesdata } from "../../Data/data";
+import { useState } from "react";
 
 export const Vegetables = () => {
   const isMd = useMediaQuery("(max-width:1024px)");
   const isSm = useMediaQuery("(max-width:686px)");
+  const [vegetable, setVegetable] = useState([]);
+  const handleVegetableSelection = (index) => {
+    if (vegetable.includes(index)) {
+      setVegetable(vegetable.filter((item) => item !== index));
+    } else {
+      setVegetable((prev) => [...prev, index]);
+    }
+  };
   return (
     <div className="my-8">
       <h3 className="text-2xl font-semibold text-black-600 flex items-center gap-2">
@@ -35,8 +44,11 @@ export const Vegetables = () => {
         {CustomVegetablesdata.map((item, index) => (
           <SwiperSlide className="mt-8" key={index}>
             <div
-              className=" cursor-pointer shadow-lg p-4 rounded-lg"
+              className={`cursor-pointer shadow-lg p-4 rounded-lg ${
+                vegetable.includes(index) && "border-4 border-green-500"
+              }`}
               key={index}
+              onClick={() => handleVegetableSelection(index)}
             >
               <div className="w-full  h-[22vh]  md:h-[26vh] lg:h-[28vh] xl:h-[32vh] rounded-lg shadow-xl overflow-hidden">
                 <img
