@@ -6,20 +6,25 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Scrollbar } from "swiper/modules";
 import "swiper/swiper-bundle.css";
 import { useMediaQuery } from "@mui/material";
-import { CustomBaseData } from "../../Data/data";
 import { useState } from "react";
+import { useSaladContext } from "../../SaladContextApi/SaladContext";
 
 export const Base = () => {
   const isMd = useMediaQuery("(max-width:1024px)");
   const isSm = useMediaQuery("(max-width:686px)");
-
-  const [base, setBase] = useState([]);
-
-  const handleBaseSelection = (item) => {
-    if (base.includes(item)) {
-      setBase(base.filter((i) => i !== item));
+  const { state, dispatch } = useSaladContext();
+  
+  const handleBaseSelection = (id) => {
+    if (state.createRecipe[0].base.find((i) => i.id === id)) {
+      dispatch({ type: "REMOVE_BASE", payload: id });
     } else {
-      setBase((prev) => [...prev, item]);
+      const Objectdata = state.base.find((i) => i.id === id);
+      if (Objectdata) {
+        dispatch({
+          type: "CREATE_RECIPE",
+          payload: { data: Objectdata, type: "BASE" },
+        });
+      }
     }
   };
 
@@ -40,14 +45,16 @@ export const Base = () => {
         navigation
         loop={true}
       >
-        {CustomBaseData.map((item, index) => (
-          <SwiperSlide className="mt-8" key={index}>
+        {state.base.map((item) => (
+          <SwiperSlide className="mt-8" key={item.id}>
             <div
               className={`cursor-pointer rounded-lg shadow-lg  p-4 ${
-                base.includes(index) && "border-4 border-green-500"
+                state.createRecipe[0].base.some((i) => i.id === item.id)
+                  ? "border-4 border-green-500"
+                  : ""
               }`}
-              key={index}
-              onClick={() => handleBaseSelection(index)}
+              key={item.id}
+              onClick={() => handleBaseSelection(item.id)}
             >
               <div className="w-full  h-[22vh]  md:h-[26vh] lg:h-[28vh] xl:h-[32vh] rounded-lg shadow-xl overflow-hidden">
                 <img

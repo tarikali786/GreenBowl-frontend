@@ -8,15 +8,24 @@ import { useMediaQuery } from "@mui/material";
 import { CustomDressingsData } from "../../Data/data";
 import DressingIocn from "../../../assets/icon/dress.png";
 import { useState } from "react";
+import { useSaladContext } from "../../SaladContextApi/SaladContext";
 export const Dressing = () => {
   const isMd = useMediaQuery("(max-width:1024px)");
   const isSm = useMediaQuery("(max-width:686px)");
   const [dressingData, setDressingData] = useState([]);
-  const handleDressingSelection = (index) => {
-    if (dressingData.includes(index)) {
-      setDressingData(dressingData.filter((item) => item !== index));
+  const { state, dispatch } = useSaladContext();
+  const handleDressingSelection = (id) => {
+    if (state.createRecipe[2].dressing.find((item) => item.id === id)) {
+      dispatch({
+        type: "REMOVE_DRESSING",
+        payload: id,
+      });
     } else {
-      setDressingData((prev) => [...prev, index]);
+      const DressingData = state.dressing.find((i) => i.id === id);
+      dispatch({
+        type: "CREATE_RECIPE",
+        payload: { type: "DRESSING", data: DressingData },
+      });
     }
   };
   return (
@@ -40,12 +49,15 @@ export const Dressing = () => {
         navigation
         loop={true}
       >
-        {CustomDressingsData.map((item, index) => (
-          <SwiperSlide className="mt-8" key={index}>
+        {state?.dressing?.map((item) => (
+          <SwiperSlide className="mt-8" key={item.id}>
             <div
-              className={` cursor-pointer rounded-lg shadow-lg  p-4  ${dressingData.includes(index) && "border-4 border-green-500"}`}
-              key={index}
-              onClick={()=>handleDressingSelection(index)}
+              className={` cursor-pointer rounded-lg shadow-lg  p-4  ${
+                state.createRecipe[2].dressing.some((i) => i.id === item.id) &&
+                "border-4 border-green-500"
+              }`}
+              key={item.id}
+              onClick={() => handleDressingSelection(item.id)}
             >
               <div className="w-full  h-[22vh]  md:h-[26vh] lg:h-[28vh] xl:h-[32vh] rounded-lg shadow-xl overflow-hidden">
                 <img

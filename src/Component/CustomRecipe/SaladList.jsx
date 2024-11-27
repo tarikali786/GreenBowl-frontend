@@ -1,27 +1,27 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import CancelIcon from "@mui/icons-material/Cancel";
+import { useSaladContext } from "../SaladContextApi/SaladContext";
 export const SaladList = () => {
   const [recepiName, setRecepiName] = React.useState("Recipe 1");
   const [showCard, setShowCard] = React.useState(true);
+  const { state, dispatch } = useSaladContext();
   const hanldeRecipeName = (e) => {
     setRecepiName(e.target.value);
   };
   const handleRecipeCard = () => {
     setShowCard(false);
   };
+
   return (
     <div
       className={`fixed top-auto bg-white-500 right-0   min-h-[10vh] w-[260px] shadow-lg  z-50  py-2 px-4  rounded-xl ${
         !showCard && "hidden"
       } `}
     >
-      <div data-v-0e8b4828="" className="hl-toolbar-group relative">
-        <div
-          data-v-0e8b4828=""
-          className="builder-form-name flex items-center justify-center text-black"
-        >
+      <div className="hl-toolbar-group relative">
+        <div className="builder-form-name flex items-center justify-center text-black">
           <div
-            data-v-0e8b4828=""
+            suppressContentEditableWarning={true}
             contentEditable="true"
             className="min-w-[1rem] max-w-2xl  outline-none truncate"
             onClick={hanldeRecipeName}
@@ -51,18 +51,115 @@ export const SaladList = () => {
         />
       </div>
       <div className="grid grid-cols-3  gap-3 mt-4">
-        {[1, 2, 3, 4, 5, 6].map((item, index) => (
-          <div className="" key={index}>
+        {state?.createRecipe[0]?.base?.map((item, index) => (
+          <div
+            className=" shadow-lg px-1 cursor-pointer"
+            key={index}
+            onClick={() => dispatch({ type: "REMOVE_BASE", payload: item.id })}
+          >
             <div className="w-auto h-12">
               <img
-                src="http://localhost:5173/src/assets/Home/Pachadi%20Salad.jpg"
+                src={`${import.meta.env.VITE_IMAGE_URL}/${item.img}`}
                 alt=""
                 className="object-cover rounded-md"
               />
             </div>
             <p className="flex justify-between gap-2 mt-1">
-              <span className="text-[12px] text-black-200">Text</span>
-              <span className="text-[12px] text-black-300">₹120</span>
+              <span className="text-[12px] text-black-200 line-clamp-1">
+                {item.title}
+              </span>
+              <span className="text-[12px] text-black-300">{item.price}</span>
+            </p>
+          </div>
+        ))}
+
+        {state?.createRecipe[4]?.vegetables?.map((item, index) => (
+          <div
+            className="shadow-lg px-1  cursor-pointer"
+            key={index}
+            onClick={() =>
+              dispatch({ type: "REMOVE_VEGETABLE", payload: item.id })
+            }
+          >
+            <div className="w-auto h-12">
+              <img
+                src={`${import.meta.env.VITE_IMAGE_URL}/${item.img}`}
+                alt=""
+                className="object-cover rounded-md"
+              />
+            </div>
+            <p className="flex justify-between gap-2 mt-1">
+              <span className="text-[12px] text-black-200 line-clamp-1">
+                {item.title}
+              </span>
+              <span className="text-[12px] text-black-300">{item.price}</span>
+            </p>
+          </div>
+        ))}
+        {state?.createRecipe[1]?.toppings?.map((item, index) => (
+          <div
+            className="shadow-lg px-1  cursor-pointer"
+            key={index}
+            onClick={() =>
+              dispatch({ type: "REMOVE_TOPPING", payload: item.id })
+            }
+          >
+            <div className="w-auto h-12">
+              <img
+                src={`${import.meta.env.VITE_IMAGE_URL}/${item.img}`}
+                alt=""
+                className="object-cover rounded-md"
+              />
+            </div>
+            <p className="flex justify-between gap-2 mt-1">
+              <span className="text-[12px] text-black-200 line-clamp-1">
+                {item.title}
+              </span>
+              <span className="text-[12px] text-black-300">{item.price}</span>
+            </p>
+          </div>
+        ))}
+        {state?.createRecipe[2]?.dressing?.map((item, index) => (
+          <div
+            className="shadow-lg px-1  cursor-pointer"
+            key={index}
+            onClick={() =>
+              dispatch({ type: "REMOVE_DRESSING", payload: item.id })
+            }
+          >
+            <div className="w-auto h-12">
+              <img
+                src={`${import.meta.env.VITE_IMAGE_URL}/${item.img}`}
+                alt=""
+                className="object-cover rounded-md"
+              />
+            </div>
+            <p className="flex justify-between gap-2 mt-1">
+              <span className="text-[12px] text-black-200 line-clamp-1">
+                {item.title}
+              </span>
+              <span className="text-[12px] text-black-300">{item.price}</span>
+            </p>
+          </div>
+        ))}
+        {state?.createRecipe[3]?.extra?.map((item, index) => (
+          <div
+            className="shadow-lg px-1  cursor-pointer"
+            key={index}
+            onClick={() => dispatch({ type: "REMOVE_EXTRA", payload: item.id })}
+          >
+            <div className="w-auto h-12">
+              <img
+                src={`${import.meta.env.VITE_IMAGE_URL}/${item.img}`}
+                alt=""
+                className="object-cover rounded-md"
+              />
+            </div>
+            <p className="flex justify-between gap-2 mt-1">
+              <span className="text-[12px] text-black-200 line-clamp-1">
+                {item.title}
+              </span>
+              <span className="text-[12px] text-black-300">{item.price}</span>
             </p>
           </div>
         ))}
@@ -72,8 +169,9 @@ export const SaladList = () => {
         <button className="text-sm bg-red-500 py-2 text-center px-4 rounded-md text-white-500 ">
           Add To Cart
         </button>
+
         <button className="text-sm bg-green-600 py-2 text-center px-4 rounded-md text-white-500">
-          Order Now
+          Save
         </button>
       </div>
     </div>

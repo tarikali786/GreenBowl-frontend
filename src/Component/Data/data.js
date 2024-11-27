@@ -91,105 +91,55 @@ import extra6 from "../../assets/Home/Extra/images (22).jpg";
 
 export const HomeHeroData = [
   {
+    id: 1,
     img: Img5,
   },
+  { id: 2, img: Img6 },
   {
-    img: Img6,
-  },
-  {
+    id: 3,
     img: Img7,
   },
+  { id: 4, img: Img1 },
+  { id: 5, img: Img2 },
   {
-    img: Img1,
-  },
-  {
-    img: Img2,
-  },
-  {
+    id: 6,
     img: Img3,
   },
-  {
-    img: Img4,
-  },
+  { id: 7, img: Img4 },
 ];
 
 export const ExploreSaladData = [
   {
+    id: 8,
     img: Img9,
     title: "Broccoli  ",
   },
+  { id: 9, img: Img10, title: "Greek  " },
+  { id: 10, img: Img14, title: "Potato " },
+  { id: 11, img: Img20, title: "Cucumber  " },
+  { id: 12, img: Img22, title: "Indian Spinach " },
+  { id: 13, img: Img11, title: "Green Papaya " },
+  { id: 14, img: Img23, title: "Kosambari " },
+  { id: 15, img: Img24, title: "Pachadi  " },
   {
-    img: Img10,
-    title: "Greek  ",
-  },
-  {
-    img: Img14,
-    title: "Potato ",
-  },
-  {
-    img: Img20,
-    title: "Cucumber  ",
-  },
-  {
-    img: Img22,
-    title: "Indian Spinach ",
-  },
-  {
-    img: Img11,
-    title: "Green Papaya ",
-  },
-  {
-    img: Img23,
-    title: "Kosambari ",
-  },
-  {
-    img: Img24,
-    title: "Pachadi  ",
-  },
-  {
+    id: 16,
     img: Img12,
     title: "Kachumber ",
   },
-  {
-    img: Img25,
-    title: "Quinoa  ",
-  },
-  {
-    img: Img18,
-    title: "Chickpea   ",
-  },
-  {
-    img: Img16,
-    title: "Avocado   ",
-  },
-  {
-    img: Img8,
-    title: "Beetroot   ",
-  },
-  {
-    img: Img19,
-    title: "Corn    ",
-  },
-  {
-    img: Img13,
-    title: "Lettuce    ",
-  },
-  {
-    img: Img17,
-    title: "Carrot    ",
-  },
-  {
-    img: Img21,
-    title: "Indian Fruit   ",
-  },
-  {
-    img: Img15,
-    title: "Sprouts   ",
-  },
+  { id: 17, img: Img25, title: "Quinoa  " },
+  { id: 18, img: Img18, title: "Chickpea   " },
+  { id: 19, img: Img16, title: "Avocado   " },
+  { id: 20, img: Img8, title: "Beetroot   " },
+  { id: 21, img: Img19, title: "Corn    " },
+  { id: 22, img: Img13, title: "Lettuce    " },
+  { id: 23, img: Img17, title: "Carrot    " },
+  { id: 24, img: Img21, title: "Indian Fruit   " },
+  { id: 25, img: Img15, title: "Sprouts   " },
 ];
 
 export const PopularSaladData = [
   {
+    id: 26,
     img: Img9,
     title: "Broccoli Delight",
     rating: 4.5,
@@ -199,6 +149,7 @@ export const PopularSaladData = [
     ingredients: "Broccoli, Lemon, Olive Oil, Garlic",
   },
   {
+    id: 27,
     img: Img10,
     title: "Greek Freshness",
     rating: 4.7,
@@ -208,6 +159,7 @@ export const PopularSaladData = [
     ingredients: "Cucumbers, Tomatoes, Olives, Feta",
   },
   {
+    id: 28,
     img: Img14,
     title: "Potato Bliss",
     rating: 4.3,
@@ -216,6 +168,7 @@ export const PopularSaladData = [
     ingredients: "Potatoes, Mayonnaise, Mustard, Herbs",
   },
   {
+    id: 29,
     img: Img20,
     title: "Crisp Cucumber",
     rating: 4.6,
@@ -224,6 +177,7 @@ export const PopularSaladData = [
     ingredients: "Cucumbers, Yogurt, Mint, Lemon",
   },
   {
+    id: 30,
     img: Img22,
     title: "Spinach Zing",
     rating: 4.8,
@@ -232,6 +186,7 @@ export const PopularSaladData = [
     ingredients: "Spinach, Cumin, Lemon, Chili",
   },
   {
+    id: 31,
     img: Img11,
     title: "Papaya Crunch",
     rating: 4.4,
@@ -241,6 +196,7 @@ export const PopularSaladData = [
     ingredients: "Green Papaya, Peanuts, Chili, Garlic",
   },
   {
+    id: 32,
     img: Img23,
     title: "Lentil Kosambari",
     rating: 4.7,
@@ -250,6 +206,7 @@ export const PopularSaladData = [
     ingredients: "Lentils, Carrot, Cucumber, Coconut",
   },
   {
+    id: 33,
     img: Img24,
     title: "Yogurt Pachadi",
     rating: 4.2,
@@ -259,6 +216,7 @@ export const PopularSaladData = [
     ingredients: "Yogurt, Mustard Seeds, Cucumber, Chili",
   },
   {
+    id: 34,
     img: Img12,
     title: "Kachumber Feast",
     rating: 4.6,
@@ -267,6 +225,7 @@ export const PopularSaladData = [
     ingredients: "Tomato, Cucumber, Onion, Lemon",
   },
   {
+    id: 35,
     img: Img13,
     title: "Fruity Freshness",
     rating: 4.9,
@@ -278,6 +237,7 @@ export const PopularSaladData = [
 
 export const CustomBaseData = [
   {
+    id: 36,
     img: Base1,
     title: "Lettuce",
     calories: "5 kcal per 100g",
@@ -287,6 +247,7 @@ export const CustomBaseData = [
     price: "30",
   },
   {
+    id: 37,
     img: Base2,
     title: "Spinach",
     calories: "23 kcal per 100g",
@@ -296,6 +257,7 @@ export const CustomBaseData = [
     price: "35",
   },
   {
+    id: 38,
     img: Base3,
     title: "Quinoa",
     calories: "120 kcal per 100g",
@@ -305,6 +267,7 @@ export const CustomBaseData = [
     price: "70",
   },
   {
+    id: 39,
     img: Base4,
     title: "Arugula",
     calories: "25 kcal per 100g",
@@ -314,6 +277,7 @@ export const CustomBaseData = [
     price: "40",
   },
   {
+    id: 40,
     img: Base5,
     title: "Kale",
     calories: "49 kcal per 100g",
@@ -323,6 +287,7 @@ export const CustomBaseData = [
     price: "50",
   },
   {
+    id: 41,
     img: Base6,
     title: "Cabbage",
     calories: "25 kcal per 100g",
@@ -332,6 +297,7 @@ export const CustomBaseData = [
     price: "20",
   },
   {
+    id: 42,
     img: Base7,
     title: "Mixed Greens",
     calories: "15 kcal per 100g",
@@ -341,6 +307,7 @@ export const CustomBaseData = [
     price: "60",
   },
   {
+    id: 43,
     img: Base8,
     title: "Chard",
     calories: "19 kcal per 100g",
@@ -350,6 +317,7 @@ export const CustomBaseData = [
     price: "45",
   },
   {
+    id: 44,
     img: Base9,
     title: "Rocket",
     calories: "25 kcal per 100g",
@@ -359,6 +327,7 @@ export const CustomBaseData = [
     price: "40",
   },
   {
+    id: 45,
     img: Base10,
     title: "Beet Greens",
     calories: "43 kcal per 100g",
@@ -371,6 +340,7 @@ export const CustomBaseData = [
 
 export const CustomVegetablesdata = [
   {
+    id: 46,
     img: Veg1,
     title: "BB",
     calories: "16 kcal per 100g",
@@ -380,6 +350,7 @@ export const CustomVegetablesdata = [
     price: "25",
   },
   {
+    id: 47,
     img: Veg2,
     title: "Carrot",
     calories: "41 kcal per 100g",
@@ -389,6 +360,7 @@ export const CustomVegetablesdata = [
     price: "20",
   },
   {
+    id: 48,
     img: Veg3,
     title: "Tomato",
     calories: "18 kcal per 100g",
@@ -398,6 +370,7 @@ export const CustomVegetablesdata = [
     price: "30",
   },
   {
+    id: 49,
     img: Veg4,
     title: "Bell Pepper",
     calories: "20 kcal per 100g",
@@ -407,6 +380,7 @@ export const CustomVegetablesdata = [
     price: "40",
   },
   {
+    id: 50,
     img: Veg5,
     title: "Onion",
     calories: "40 kcal per 100g",
@@ -416,6 +390,7 @@ export const CustomVegetablesdata = [
     price: "15",
   },
   {
+    id: 51,
     img: Veg6,
     title: "Avocado",
     calories: "160 kcal per 100g",
@@ -425,6 +400,7 @@ export const CustomVegetablesdata = [
     price: "80",
   },
   {
+    id: 52,
     img: Veg7,
     title: "Radish",
     calories: "16 kcal per 100g",
@@ -434,6 +410,7 @@ export const CustomVegetablesdata = [
     price: "20",
   },
   {
+    id: 53,
     img: Veg8,
     title: "Beetroot",
     calories: "43 kcal per 100g",
@@ -443,6 +420,7 @@ export const CustomVegetablesdata = [
     price: "30",
   },
   {
+    id: 54,
     img: Veg9,
     title: "Broccoli",
     calories: "55 kcal per 100g",
@@ -452,7 +430,9 @@ export const CustomVegetablesdata = [
     price: "50",
   },
   {
+    id: 55,
     img: Veg10,
+
     title: "Cauliflower",
     calories: "25 kcal per 100g",
     weight: "100g",
@@ -461,6 +441,7 @@ export const CustomVegetablesdata = [
     price: "35",
   },
   {
+    id: 56,
     img: Veg11,
     title: "Zucchini",
     calories: "17 kcal per 100g",
@@ -470,6 +451,7 @@ export const CustomVegetablesdata = [
     price: "28",
   },
   {
+    id: 57,
     img: Veg12,
     title: "Sweet Corn",
     calories: "96 kcal per 100g",
@@ -479,6 +461,7 @@ export const CustomVegetablesdata = [
     price: "40",
   },
   {
+    id: 58,
     img: Veg13,
     title: "Mushrooms",
     calories: "22 kcal per 100g",
@@ -488,6 +471,7 @@ export const CustomVegetablesdata = [
     price: "50",
   },
   {
+    id: 59,
     img: Veg14,
     title: "Green Beans",
     calories: "31 kcal per 100g",
@@ -497,6 +481,7 @@ export const CustomVegetablesdata = [
     price: "35",
   },
   {
+    id: 60,
     img: Veg15,
     title: "Spinach",
     calories: "23 kcal per 100g",
@@ -506,6 +491,7 @@ export const CustomVegetablesdata = [
     price: "30",
   },
   {
+    id: 61,
     img: Veg16,
     title: "Peas",
     calories: "81 kcal per 100g",
@@ -515,6 +501,7 @@ export const CustomVegetablesdata = [
     price: "25",
   },
   {
+    id: 62,
     img: Veg17,
     title: "Cabbage",
     calories: "25 kcal per 100g",
@@ -524,6 +511,7 @@ export const CustomVegetablesdata = [
     price: "20",
   },
   {
+    id: 63,
     img: Veg18,
     title: "Celery",
     calories: "16 kcal per 100g",
@@ -533,6 +521,7 @@ export const CustomVegetablesdata = [
     price: "25",
   },
   {
+    id: 64,
     img: Veg19,
     title: "Leek",
     calories: "31 kcal per 100g",
@@ -541,6 +530,7 @@ export const CustomVegetablesdata = [
     price: "40",
   },
   {
+    id: 65,
     img: Veg20,
     title: "Asparagus",
     calories: "20 kcal per 100g",
@@ -553,6 +543,7 @@ export const CustomVegetablesdata = [
 
 export const CustomToppingsData = [
   {
+    id: 66,
     img: Top1,
     title: "Cheese",
     calories: "100 kcal per 30g",
@@ -562,6 +553,7 @@ export const CustomToppingsData = [
     price: "40",
   },
   {
+    id: 67,
     img: Top2,
     title: "Olives",
     calories: "115 kcal per 30g",
@@ -571,6 +563,7 @@ export const CustomToppingsData = [
     price: "30",
   },
   {
+    id: 68,
     img: Top3,
     title: "Nuts",
     calories: "200 kcal per 30g",
@@ -580,6 +573,7 @@ export const CustomToppingsData = [
     price: "50",
   },
   {
+    id: 69,
     img: Top4,
     title: "Cranberries",
     calories: "80 kcal per 30g",
@@ -589,6 +583,7 @@ export const CustomToppingsData = [
     price: "40",
   },
   {
+    id: 70,
     img: Top5,
     title: "Chickpeas",
     calories: "164 kcal per 30g",
@@ -599,6 +594,7 @@ export const CustomToppingsData = [
   },
 
   {
+    id: 71,
     img: Top6,
     title: "Boiled Egg",
     calories: "68 kcal per egg",
@@ -608,6 +604,7 @@ export const CustomToppingsData = [
     price: "25",
   },
   {
+    id: 72,
     img: Top7,
     title: "Bacon Bits",
     calories: "150 kcal per 30g",
@@ -617,6 +614,7 @@ export const CustomToppingsData = [
     price: "50",
   },
   {
+    id: 73,
     img: Top8,
     title: "Sunflower Seeds",
     calories: "180 kcal per 30g",
@@ -626,6 +624,7 @@ export const CustomToppingsData = [
     price: "30",
   },
   {
+    id: 74,
     img: Top9,
     title: "Avocado",
     calories: "160 kcal per 100g",
@@ -638,6 +637,7 @@ export const CustomToppingsData = [
 
 export const CustomDressingsData = [
   {
+    id: 75,
     img: dress1,
     title: "Balsamic Vinaigrette",
     calories: "50 kcal per 30g",
@@ -647,6 +647,7 @@ export const CustomDressingsData = [
     price: "25",
   },
   {
+    id: 76,
     img: dress2,
     title: "Honey Mustard",
     calories: "100 kcal per 30g",
@@ -656,6 +657,7 @@ export const CustomDressingsData = [
     price: "35",
   },
   {
+    id: 77,
     img: dress3,
     title: "Italian Dressing",
     calories: "80 kcal per 30g",
@@ -665,6 +667,7 @@ export const CustomDressingsData = [
     price: "30",
   },
   {
+    id: 78,
     img: dress4,
     title: "Blue Cheese",
     calories: "150 kcal per 30g",
@@ -674,6 +677,7 @@ export const CustomDressingsData = [
     price: "40",
   },
   {
+    id: 79,
     img: dress5,
     title: "Thousand Island",
     calories: "120 kcal per 30g",
@@ -683,6 +687,7 @@ export const CustomDressingsData = [
     price: "35",
   },
   {
+    id: 80,
     img: dress6,
     title: "Olive Oil & Lemon",
     calories: "120 kcal per 30g",
@@ -693,6 +698,7 @@ export const CustomDressingsData = [
   },
 
   {
+    id: 81,
     img: dress7,
     title: "Poppy Seed Dressing",
     calories: "130 kcal per 30g",
@@ -704,6 +710,7 @@ export const CustomDressingsData = [
 ];
 export const CustomExtrasData = [
   {
+    id: 82,
     img: extra1, // Replace with the image source or URL for Lemon
     title: "Lemon",
     description: "Freshly squeezed for a zesty flavor boost.",
@@ -711,6 +718,7 @@ export const CustomExtrasData = [
     price: "5",
   },
   {
+    id: 83,
     img: extra2, // Replace with the image source or URL for Black Salt
     title: "Black Salt",
     description: "Adds a tangy, earthy flavor to your salad.",
@@ -718,6 +726,7 @@ export const CustomExtrasData = [
     price: "2",
   },
   {
+    id: 84,
     img: extra3, // Replace with the image source or URL for Chili Flakes
     title: "Chili Flakes",
     description: "For a touch of heat and spice.",
@@ -725,6 +734,7 @@ export const CustomExtrasData = [
     price: "3",
   },
   {
+    id: 85,
     img: extra4, // Replace with the image source or URL for Mint Leaves
     title: "Mint Leaves",
     description: "Refreshing and aromatic for a fresh finish.",
@@ -732,6 +742,7 @@ export const CustomExtrasData = [
     price: "4",
   },
   {
+    id: 86,
     img: extra5, // Replace with the image source or URL for Honey
     title: "Honey",
     description: "A natural sweetener to balance flavors.",
@@ -739,6 +750,7 @@ export const CustomExtrasData = [
     price: "10",
   },
   {
+    id: 87,
     img: extra6, // Replace with the image source or URL for Chilies
     title: "Chilies",
     description: "Fresh and spicy for those who love heat.",

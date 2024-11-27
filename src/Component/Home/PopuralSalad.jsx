@@ -1,4 +1,3 @@
-import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Scrollbar } from "swiper/modules";
 import "swiper/swiper-bundle.css";
@@ -28,8 +27,8 @@ export const PopuralSalad = () => {
           navigation
           loop={true}
         >
-          {PopularSaladData.map((item, index) => (
-            <SwiperSlide className="country-Card" key={index}>
+          {PopularSaladData.map((item) => (
+            <SwiperSlide className="country-Card" key={item.id}>
               <Link
                 to={"#"}
                 className="flex flex-col items-left justify-left gap-2"

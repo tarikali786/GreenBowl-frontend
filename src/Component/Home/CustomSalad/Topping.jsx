@@ -9,16 +9,23 @@ import "swiper/swiper-bundle.css";
 import { useMediaQuery } from "@mui/material";
 import { CustomToppingsData } from "../../Data/data";
 import { useState } from "react";
+import { useSaladContext } from "../../SaladContextApi/SaladContext";
 
 export const Topping = () => {
   const isMd = useMediaQuery("(max-width:1024px)");
   const isSm = useMediaQuery("(max-width:686px)");
   const [toppingData, setToppingData] = useState([]);
-  const handletToppingDataSelection = (index) => {
-    if (toppingData.includes(index)) {
-      setToppingData(toppingData.filter((item) => item !== index));
+  const { state, dispatch } = useSaladContext();
+
+  const handletToppingDataSelection = (id) => {
+    if (state.createRecipe[1].toppings.find((i) => i.id === id)) {
+      dispatch({ type: "REMOVE_TOPPING", payload: id });
     } else {
-      setToppingData((prev) => [...prev, index]);
+      const ToppingData = state.toppings.find((i) => i.id === id);
+      dispatch({
+        type: "CREATE_RECIPE",
+        payload: { type: "TOPPINGS", data: ToppingData },
+      });
     }
   };
   return (
@@ -42,14 +49,14 @@ export const Topping = () => {
         navigation
         loop={true}
       >
-        {CustomToppingsData.map((item, index) => (
-          <SwiperSlide className="mt-8" key={index}>
+        {state?.toppings?.map((item) => (
+          <SwiperSlide className="mt-8" key={item.id}>
             <div
               className={`cursor-pointer rounded-lg shadow-lg  p-4 ${
-                toppingData.includes(index) && "border-4 border-green-500"
+                state.createRecipe[1].toppings.some((i) => i.id === item.id) &&
+                "border-4 border-green-500"
               }`}
-              key={index}
-              onClick={() => handletToppingDataSelection(index)}
+              onClick={() => handletToppingDataSelection(item.id)}
             >
               <div className="w-full  h-[22vh]  md:h-[26vh] lg:h-[28vh] xl:h-[32vh] rounded-lg shadow-xl overflow-hidden">
                 <img

@@ -6,18 +6,25 @@ import { Autoplay, Navigation, Scrollbar } from "swiper/modules";
 import veg from "../../../assets/icon/veg.png";
 import "swiper/swiper-bundle.css";
 import { useMediaQuery } from "@mui/material";
-import { CustomVegetablesdata } from "../../Data/data";
-import { useState } from "react";
+
+import { useSaladContext } from "../../SaladContextApi/SaladContext";
 
 export const Vegetables = () => {
   const isMd = useMediaQuery("(max-width:1024px)");
   const isSm = useMediaQuery("(max-width:686px)");
-  const [vegetable, setVegetable] = useState([]);
-  const handleVegetableSelection = (index) => {
-    if (vegetable.includes(index)) {
-      setVegetable(vegetable.filter((item) => item !== index));
+  const { state, dispatch } = useSaladContext();
+
+  const handleVegetableSelection = (id) => {
+    if (state.createRecipe[4].vegetables.some((item) => item.id === id)) {
+      dispatch({ type: "REMOVE_VEGETABLE", payload: id });
     } else {
-      setVegetable((prev) => [...prev, index]);
+      const VegetableData = state.vegetables.find((item) => item.id === id);
+      if (VegetableData) {
+        dispatch({
+          type: "CREATE_RECIPE",
+          payload: { type: "VEGETABLES", data: VegetableData },
+        });
+      }
     }
   };
   return (
@@ -41,14 +48,15 @@ export const Vegetables = () => {
         navigation
         loop={true}
       >
-        {CustomVegetablesdata.map((item, index) => (
-          <SwiperSlide className="mt-8" key={index}>
+        {state.vegetables.map((item) => (
+          <SwiperSlide className="mt-8" key={item.id}>
             <div
               className={`cursor-pointer shadow-lg p-4 rounded-lg ${
-                vegetable.includes(index) && "border-4 border-green-500"
+                state.createRecipe[4].vegetables.some((i) => i.id === item.id)
+                  ? "border-4 border-green-500"
+                  : ""
               }`}
-              key={index}
-              onClick={() => handleVegetableSelection(index)}
+              onClick={() => handleVegetableSelection(item.id)}
             >
               <div className="w-full  h-[22vh]  md:h-[26vh] lg:h-[28vh] xl:h-[32vh] rounded-lg shadow-xl overflow-hidden">
                 <img

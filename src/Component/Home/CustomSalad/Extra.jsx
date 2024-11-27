@@ -5,18 +5,24 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Scrollbar } from "swiper/modules";
 import "swiper/swiper-bundle.css";
 import { useMediaQuery } from "@mui/material";
-import { CustomExtrasData } from "../../Data/data";
 import MoreHorizRoundedIcon from "@mui/icons-material/MoreHorizRounded";
-import { useState } from "react";
+import { useSaladContext } from "../../SaladContextApi/SaladContext";
 export const Extra = () => {
   const isMd = useMediaQuery("(max-width:1024px)");
   const isSm = useMediaQuery("(max-width:686px)");
-  const [extraData, setExtraData] = useState([]);
-  const handleExtraSelection = (index) => {
-    if (extraData.includes(index)) {
-      setExtraData(extraData.filter((item) => item !== index));
+  const { state, dispatch } = useSaladContext();
+
+  // console.log(state.createRecipe[3].extra);
+
+  const handleExtraSelection = (id) => {
+    if (state.createRecipe[3].extra.find((item) => item.id === id)) {
+      dispatch({ type: "REMOVE_EXTRA", payload: id });
     } else {
-      setExtraData((prev) => [...prev, index]);
+      const extraData = state.extras.find((i) => i.id === id);
+      dispatch({
+        type: "CREATE_RECIPE",
+        payload: { type: "EXTRA", data: extraData },
+      });
     }
   };
   return (
@@ -37,14 +43,15 @@ export const Extra = () => {
         navigation
         loop={true}
       >
-        {CustomExtrasData.map((item, index) => (
-          <SwiperSlide className="mt-8" key={index}>
+        {state.extras.map((item) => (
+          <SwiperSlide className="mt-8" key={item.id}>
             <div
               className={`cursor-pointer rounded-lg shadow-lg  p-4 ${
-                extraData.includes(index) && "border-4 border-green-500"
+                state.createRecipe[3].extra.some((i) => i.id === item.id)
+                  ? "border-4 border-green-500"
+                  : ""
               }`}
-              key={index}
-              onClick={() => handleExtraSelection(index)}
+              onClick={() => handleExtraSelection(item.id)}
             >
               <div className="w-full  h-[22vh]  md:h-[26vh] lg:h-[28vh] xl:h-[32vh] rounded-lg shadow-xl overflow-hidden">
                 <img
