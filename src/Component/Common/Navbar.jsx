@@ -5,12 +5,13 @@ import Location from "../../assets/icon/location.png";
 import Recipe from "../../assets/icon/icons8-meal-100.png";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import SearchIcon from "@mui/icons-material/Search";
+import { Link } from "react-router-dom";
 export const Navbar = () => {
   return (
     <div className="bg-black-200 w-full flex justify-between items-center px-4 md:px-14 lg:px-34 xl:px-44  sticky left-0 top-0 gap-4 z-50">
-      <div className="w-44 h-20">
+      <Link to="/" className="w-44 h-20">
         <img src={Logo} alt="" />
-      </div>
+      </Link>
       <div className="w-[40%]  px-2 py-3 bg-white-500 md:flex items-center rounded-lg  hidden ">
         <SearchIcon />
         <input
@@ -36,13 +37,16 @@ export const Navbar = () => {
           </div>
           <span>Cart</span>
         </div>
-        <div className="md:flex hidden items-center gap-1 md:gap-2 text-white-500 cursor-pointer">
+        <Link
+          to={"/recipe-list"}
+          className="md:flex hidden items-center gap-1 md:gap-2 text-white-500 cursor-pointer"
+        >
           <div className="size-6 md:size-8 overflow-hidden bg-white-500 rounded-full">
             <img src={Recipe} alt="" />
           </div>
           <span>Recipe</span>
           {/* <KeyboardArrowDownIcon /> */}
-        </div>
+        </Link>
       </div>
     </div>
   );

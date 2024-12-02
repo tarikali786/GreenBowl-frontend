@@ -24,8 +24,10 @@ const initialState = {
     { dressing: [] },
     { extra: [] },
     { vegetables: [] },
+    { recipeName: "" },
   ],
 };
+
 
 // Reducer Function
 const saladReducer = (state, action) => {
@@ -122,6 +124,21 @@ const saladReducer = (state, action) => {
         ),
       };
 
+    case "SAVE_RECIPE": {
+      const initialCreateRecipe = [
+        { base: [] },
+        { toppings: [] },
+        { dressing: [] },
+        { extra: [] },
+        { vegetables: [] },
+        { recipeName: "" },
+      ];
+      return {
+        ...state,
+        recipe: [...state.recipe, action.payload],
+        createRecipe: initialCreateRecipe,
+      };
+    }
     default:
       return state;
   }

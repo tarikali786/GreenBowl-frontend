@@ -24,6 +24,7 @@ export default {
         400: "#e0e0e0",
         300: "#c1c1c1",
         200: "#b5b5b5",
+        100: "#f8f8f8",
       },
       black: {
         600: " #1F1F1F",
@@ -34,6 +35,7 @@ export default {
         100: "#dadada",
       },
       red: {
+        600: "#d9534f",
         500: "#03c9d7",
       },
     },

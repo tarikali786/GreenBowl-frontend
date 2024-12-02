@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
-import { Home, HomeLayout } from "./Component";
+import { Home, HomeLayout, Recipe } from "./Component";
 
 function App() {
   return (
@@ -8,6 +8,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomeLayout />}>
           <Route index element={<Home />} />
+          <Route path="recipe-list" element={<Recipe />} />
         </Route>
       </Routes>
     </>

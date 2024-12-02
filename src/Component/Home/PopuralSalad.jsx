@@ -14,7 +14,7 @@ export const PopuralSalad = () => {
       <h1 className="text-xl md:text-2xl font-bold">
         Most Popular Salad Picks
       </h1>
-      <div className="my-8">
+      <div className="my-8 ">
         <Swiper
           spaceBetween={30}
           slidesPerView={isSm ? 1 : isMd ? 2 : 4}

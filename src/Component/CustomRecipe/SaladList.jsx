@@ -1,15 +1,43 @@
 import React, { useEffect, useState } from "react";
 import CancelIcon from "@mui/icons-material/Cancel";
 import { useSaladContext } from "../SaladContextApi/SaladContext";
+import { useCallback } from "react";
 export const SaladList = () => {
-  const [recepiName, setRecepiName] = React.useState("Recipe 1");
   const [showCard, setShowCard] = React.useState(true);
   const { state, dispatch } = useSaladContext();
+  const [recipeName, setRecipeName] = useState("");
+
+  React.useEffect(() => {
+    const hasData = state.createRecipe.some(
+      (section) =>
+        (section.base && section.base.length > 0) ||
+        (section.toppings && section.toppings.length > 0) ||
+        (section.dressing && section.dressing.length > 0) ||
+        (section.vegetables && section.vegetables.length > 0) ||
+        (section.extras && section.extras.length > 0)
+    );
+    setShowCard(hasData);
+  }, [state.createRecipe]);
+
+  useEffect(() => {
+    setRecipeName(`Recipe${state.recipe.length}`);
+  }, [state.recipe]);
+
   const hanldeRecipeName = (e) => {
-    setRecepiName(e.target.value);
+    setRecipeName(e.target.value);
   };
   const handleRecipeCard = () => {
     setShowCard(false);
+  };
+
+  const handleSaveRecipe = () => {
+    const updatedCreateRecipe = [...state.createRecipe];
+    updatedCreateRecipe[5].recipeName = recipeName;
+
+    dispatch({
+      type: "SAVE_RECIPE",
+      payload: { ...updatedCreateRecipe },
+    });
   };
 
   return (
@@ -20,14 +48,13 @@ export const SaladList = () => {
     >
       <div className="hl-toolbar-group relative">
         <div className="builder-form-name flex items-center justify-center text-black">
-          <div
-            suppressContentEditableWarning={true}
-            contentEditable="true"
-            className="min-w-[1rem] max-w-2xl  outline-none truncate"
-            onClick={hanldeRecipeName}
-          >
-            {recepiName}
-          </div>
+          <input
+            type="text"
+            value={recipeName}
+            onChange={hanldeRecipeName}
+            className="max-w-[60%] pl-1"
+          />
+
           <svg
             data-v-0e8b4828=""
             xmlns="http://www.w3.org/2000/svg"
@@ -36,7 +63,7 @@ export const SaladList = () => {
             strokeWidth="2"
             stroke="currentColor"
             aria-hidden="true"
-            className="ml-1 h-4 w-4 text-gray-700 hover:text-gray-500"
+            className="ml-1 h-3 w-3 text-gray-700 hover:text-gray-500"
           >
             <path
               strokeLinecap="round"
@@ -50,7 +77,7 @@ export const SaladList = () => {
           onClick={handleRecipeCard}
         />
       </div>
-      <div className="grid grid-cols-3  gap-3 mt-4">
+      <div className="grid grid-cols-3  gap-3 mt-4 max-h-[30vh] overflow-y-auto">
         {state?.createRecipe[0]?.base?.map((item, index) => (
           <div
             className=" shadow-lg px-1 cursor-pointer"
@@ -170,7 +197,10 @@ export const SaladList = () => {
           Add To Cart
         </button>
 
-        <button className="text-sm bg-green-600 py-2 text-center px-4 rounded-md text-white-500">
+        <button
+          className="text-sm bg-green-600 py-2 text-center px-4 rounded-md text-white-500"
+          onClick={handleSaveRecipe}
+        >
           Save
         </button>
       </div>

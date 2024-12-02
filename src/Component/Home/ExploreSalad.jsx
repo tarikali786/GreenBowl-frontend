@@ -9,7 +9,7 @@ export const ExploreSalad = () => {
   const isMd = useMediaQuery("(max-width:1024px)");
   const isSm = useMediaQuery("(max-width:686px)");
   return (
-    <div className="px-4 md:px-14 lg:px-32 xl:px-44 py-6 ">
+    <div className="px-4 md:px-14 lg:px-32 xl:px-44 py-6 bg-white-500 ">
       <h1 className="text-xl md:text-2xl font-bold">
         Explore Our Most Loved Salads
       </h1>
